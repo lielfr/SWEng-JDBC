@@ -71,6 +71,9 @@ public class Main {
 			}
 			batchUpdate.close();
 
+			System.out.println("After C:");
+			outputDB(stmt);
+
 			PreparedStatement update2 = conn.prepareStatement("UPDATE flights SET price = price + ? WHERE distance > ?");
 			update2.setInt(1, 100);
 			update2.setInt(2, 1000);
@@ -82,6 +85,9 @@ public class Main {
 			update3.setInt(2, 300);
 			update3.executeUpdate();
 			update3.close();
+
+			System.out.println("After D:");
+			outputDB(stmt);
 
 
 			System.out.println("\t============");
